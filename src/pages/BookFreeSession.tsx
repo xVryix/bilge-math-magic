@@ -102,6 +102,12 @@ const BookFreeSession = () => {
             <p className="text-center text-sm text-muted-foreground">
               I'll respond within 24 hours to confirm a time that works for you.
             </p>
+
+            <p className="text-center text-xs text-muted-foreground mt-2">
+              Already a student?{" "}
+              <a href="/review" className="text-primary hover:underline font-medium">Leave a review</a>{" "}
+              — it really helps!
+            </p>
           </form>
         </FadeIn>
       </div>

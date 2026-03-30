@@ -200,6 +200,14 @@ const Home = () => (
             </FadeIn>
           ))}
         </div>
+        <FadeIn delay={0.5}>
+          <div className="mt-10 text-center">
+            <p className="text-muted-foreground">Had a great experience?</p>
+            <Button asChild variant="outline" className="mt-3">
+              <Link to="/review">Leave a Review ⭐</Link>
+            </Button>
+          </div>
+        </FadeIn>
       </div>
     </section>
 
