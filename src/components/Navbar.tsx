@@ -10,6 +10,7 @@ const navLinks = [
   { to: "/pricing", label: "Pricing" },
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
+  { to: "/review", label: "Leave a Review" },
 ];
 
 const Navbar = () => {
