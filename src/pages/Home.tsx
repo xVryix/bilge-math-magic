@@ -70,6 +70,13 @@ const Home = () => (
             <FadeIn key={i} delay={0.05 * (i + 1)}>
               <div className="text-center">
                 <p className="text-3xl md:text-4xl font-bold text-primary">{stat.number}</p>
+                {stat.showStars && (
+                  <div className="flex justify-center gap-0.5 mt-1">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
+                    ))}
+                  </div>
+                )}
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
               </div>
             </FadeIn>
