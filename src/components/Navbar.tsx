@@ -37,7 +37,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Button asChild size="sm">
-            <Link to="/contact">Book Free Session</Link>
+            <Link to="/book-free-session">Book Free Session</Link>
           </Button>
         </div>
 
