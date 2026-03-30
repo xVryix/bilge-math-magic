@@ -12,7 +12,14 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thanks! I'll respond within 24 hours.");
+
+    const subject = encodeURIComponent("New Contact from Math with Bilge");
+    const body = encodeURIComponent(
+      `Parent Name: ${form.name}\nEmail: ${form.email}\nChild's Grade: ${form.grade}\nStruggles: ${form.struggles}\nPreferred Day/Time: ${form.time}`
+    );
+    window.location.href = `mailto:mypulum@gmail.com?subject=${subject}&body=${body}`;
+
+    toast.success("Opening your email client — send the message to complete your inquiry!");
     setForm({ name: "", email: "", grade: "", struggles: "", time: "" });
   };
 
