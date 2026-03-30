@@ -28,7 +28,7 @@ const Pricing = () => (
         {plans.map((plan, i) => (
           <FadeIn key={i} delay={0.1 * (i + 1)}>
             <div
-              className={`relative rounded-lg border p-8 bg-card flex flex-col ${
+              className={`relative rounded-lg border p-8 bg-card flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
                 plan.popular ? "border-primary border-2 shadow-lg" : ""
               }`}
             >
@@ -113,7 +113,7 @@ const Pricing = () => (
             🎉 Your first intro session is always free — no commitment, no pressure.
           </p>
           <Button asChild size="sm" className="mt-3">
-            <Link to="/contact">Book Your Free Intro</Link>
+            <Link to="/book-free-session">Book Your Free Intro</Link>
           </Button>
         </div>
       </FadeIn>

@@ -37,7 +37,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Button asChild size="sm">
-            <Link to="/contact">Book Free Session</Link>
+            <Link to="/book-free-session">Book Free Session</Link>
           </Button>
         </div>
 
@@ -67,7 +67,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Button asChild className="w-full mt-3" size="sm">
-            <Link to="/contact" onClick={() => setMobileOpen(false)}>
+            <Link to="/book-free-session" onClick={() => setMobileOpen(false)}>
               Book Free Session
             </Link>
           </Button>

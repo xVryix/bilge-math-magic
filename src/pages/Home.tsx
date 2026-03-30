@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Star, CalendarCheck, Monitor, TrendingUp, Heart, ShieldCheck, FileText, Clock, CheckCircle } from "lucide-react";
+import { Star, CalendarCheck, Monitor, TrendingUp, Heart, ShieldCheck, FileText, Clock, CheckCircle, Users } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
 const steps = [
@@ -29,6 +29,13 @@ const milestones = [
   { session: "After Session 4", result: "Parents typically report improved confidence, better homework habits, and less math anxiety." },
 ];
 
+const stats = [
+  { number: "50+", label: "Sessions Delivered" },
+  { number: "20+", label: "Students Helped" },
+  { number: "5.0", label: "Average Rating" },
+  { number: "100%", label: "Satisfaction Rate" },
+];
+
 const Home = () => (
   <div>
     {/* Hero */}
@@ -49,9 +56,25 @@ const Home = () => (
         </FadeIn>
         <FadeIn delay={0.3}>
           <Button asChild size="lg" className="mt-8 text-base px-8">
-            <Link to="/contact">Book a free intro session</Link>
+            <Link to="/book-free-session">Book a free intro session</Link>
           </Button>
         </FadeIn>
+      </div>
+    </section>
+
+    {/* Social Proof Stats */}
+    <section className="py-10 border-b bg-card">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          {stats.map((stat, i) => (
+            <FadeIn key={i} delay={0.05 * (i + 1)}>
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-bold text-primary">{stat.number}</p>
+                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -80,7 +103,7 @@ const Home = () => (
         <div className="mt-12 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {steps.map((step, i) => (
             <FadeIn key={i} delay={0.1 * (i + 1)}>
-              <div className="text-center p-6">
+              <div className="text-center p-6 rounded-lg transition-shadow duration-300 hover:shadow-md">
                 <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center mx-auto">
                   <step.icon className="w-7 h-7 text-primary" />
                 </div>
@@ -103,6 +126,9 @@ const Home = () => (
           <div className="mt-8 space-y-5 text-center">
             <p className="text-muted-foreground leading-relaxed text-lg">
               As a 13-year-old student, I remember exactly what it feels like to stare at a math problem and feel completely lost. That memory makes me more patient, more empathetic, and more creative in how I teach.
+            </p>
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              I've experienced firsthand how much a teacher's approach matters. In 6th grade, my math class was all about assignments — one after another — with very little explanation. I had an 80 in the class and felt like I was falling behind. Now in 8th grade, my teacher takes the time to break things down and make sure every student truly understands the material. That shift brought my grade up to a 96 — and completely changed how I feel about math. That experience is exactly why I tutor the way I do: with patience, clarity, and a focus on real understanding.
             </p>
             <p className="text-muted-foreground leading-relaxed text-lg">
               Kids open up to someone closer to their age. There's no intimidation — just a relatable mentor who speaks their language and genuinely loves math.
@@ -133,7 +159,7 @@ const Home = () => (
         <div className="mt-12 space-y-6">
           {milestones.map((m, i) => (
             <FadeIn key={i} delay={0.1 * (i + 1)}>
-              <div className="flex gap-4 items-start p-5 rounded-lg border bg-card">
+              <div className="flex gap-4 items-start p-5 rounded-lg border bg-card transition-shadow duration-300 hover:shadow-md">
                 <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold text-foreground">{m.session}</h3>
@@ -155,7 +181,7 @@ const Home = () => (
         <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {testimonials.map((t, i) => (
             <FadeIn key={i} delay={0.1 * (i + 1)}>
-              <div className="bg-card p-6 rounded-lg border shadow-sm">
+              <div className="bg-card p-6 rounded-lg border shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="flex gap-0.5 mb-3">
                   {Array.from({ length: t.stars }).map((_, j) => (
                     <Star key={j} className="w-4 h-4 fill-primary text-primary" />
@@ -179,11 +205,18 @@ const Home = () => (
             The first session is always free. No commitment, no pressure — just math.
           </p>
           <Button asChild size="lg" className="mt-6 text-base px-8">
-            <Link to="/contact">Book your free intro session</Link>
+            <Link to="/book-free-session">Book your free intro session</Link>
           </Button>
         </FadeIn>
       </div>
     </section>
+
+    {/* Sticky Mobile CTA */}
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/95 backdrop-blur-sm border-t p-3">
+      <Button asChild className="w-full" size="lg">
+        <Link to="/book-free-session">Book Free Session</Link>
+      </Button>
+    </div>
   </div>
 );
 
