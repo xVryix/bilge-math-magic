@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/FadeIn";
 
 const plans = [
-  { name: "Single Session", price: "$20", per: "per session", features: ["1 hour on Google Meet", "Session recap for parents", "Interactive whiteboard"], popular: false },
-  { name: "4-Session Bundle", price: "$72", per: "save $8", features: ["4 × 1-hour sessions", "Session recaps for parents", "Interactive whiteboard", "Flexible scheduling"], popular: true },
-  { name: "8-Session Bundle", price: "$136", per: "save $24", features: ["8 × 1-hour sessions", "Session recaps for parents", "Interactive whiteboard", "Flexible scheduling", "Priority booking"], popular: false },
+  { name: "Single Session", price: "$20", per: "per session", slug: "single", features: ["1 hour on Google Meet", "Session recap for parents", "Interactive whiteboard"], popular: false },
+  { name: "4-Session Bundle", price: "$72", per: "save $8", slug: "4-session", features: ["4 × 1-hour sessions", "Session recaps for parents", "Interactive whiteboard", "Flexible scheduling"], popular: true },
+  { name: "8-Session Bundle", price: "$136", per: "save $24", slug: "8-session", features: ["8 × 1-hour sessions", "Session recaps for parents", "Interactive whiteboard", "Flexible scheduling", "Priority booking"], popular: false },
 ];
 
 const Pricing = () => (
@@ -51,7 +51,7 @@ const Pricing = () => (
                 ))}
               </ul>
               <Button asChild className="mt-8 w-full" variant={plan.popular ? "default" : "outline"}>
-                <Link to="/contact">Get Started</Link>
+                <Link to={`/book/${plan.slug}`}>Get Started</Link>
               </Button>
             </div>
           </FadeIn>
