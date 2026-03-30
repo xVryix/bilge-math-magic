@@ -113,7 +113,7 @@ const Pricing = () => (
             🎉 Your first intro session is always free — no commitment, no pressure.
           </p>
           <Button asChild size="sm" className="mt-3">
-            <Link to="/contact">Book Your Free Intro</Link>
+            <Link to="/book-free-session">Book Your Free Intro</Link>
           </Button>
         </div>
       </FadeIn>
