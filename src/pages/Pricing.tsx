@@ -51,7 +51,7 @@ const Pricing = () => (
                 ))}
               </ul>
               <Button asChild className="mt-8 w-full" variant={plan.popular ? "default" : "outline"}>
-                <Link to="/contact">Get Started</Link>
+                <Link to={`/book/${plan.slug}`}>Get Started</Link>
               </Button>
             </div>
           </FadeIn>

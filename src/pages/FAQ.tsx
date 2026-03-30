@@ -14,6 +14,7 @@ const faqs = [
   { q: "What is the free intro session?", a: "It's a no-commitment 30-minute session where I meet your child, learn about what they're working on, and do a little math together. It's a great way to see if we're a good fit." },
   { q: "What devices does my child need?", a: "Any computer, tablet, or Chromebook with a webcam and internet connection works. A laptop or desktop is ideal so your child can easily see the whiteboard." },
   { q: "Can I sit in on the session?", a: "Absolutely! Parents are welcome to sit in on any session. Some parents like to observe, and others prefer to let their child work independently — both are totally fine." },
+  { q: "When are you available?", a: "I'm available for sessions on Tuesdays and Thursdays from 6:00 to 8:00 PM, as well as weekends at any time. To find a slot that works best for your family, just reach out via the contact form or email and we'll coordinate scheduling together." },
 ];
 
 const FAQ = () => (
