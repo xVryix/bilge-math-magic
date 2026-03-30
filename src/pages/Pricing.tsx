@@ -28,7 +28,7 @@ const Pricing = () => (
         {plans.map((plan, i) => (
           <FadeIn key={i} delay={0.1 * (i + 1)}>
             <div
-              className={`relative rounded-lg border p-8 bg-card flex flex-col ${
+              className={`relative rounded-lg border p-8 bg-card flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
                 plan.popular ? "border-primary border-2 shadow-lg" : ""
               }`}
             >
