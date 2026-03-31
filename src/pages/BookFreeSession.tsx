@@ -19,7 +19,7 @@ const BookFreeSession = () => {
     window.location.href = `mailto:mypulum@gmail.com?subject=${subject}&body=${body}`;
 
     toast.success("Opening your email client — send the message to book your free session!");
-    setForm({ name: "", email: "", grade: "", struggles: "", time: "" });
+    setForm({ name: "", email: "", grade: "", childName: "", interests: "", struggles: "", time: "" });
   };
 
   return (
