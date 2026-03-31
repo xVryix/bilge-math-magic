@@ -7,19 +7,19 @@ import { toast } from "sonner";
 import FadeIn from "@/components/FadeIn";
 
 const BookFreeSession = () => {
-  const [form, setForm] = useState({ name: "", email: "", grade: "", struggles: "", time: "" });
+  const [form, setForm] = useState({ name: "", email: "", grade: "", childName: "", interests: "", struggles: "", time: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const subject = encodeURIComponent("Free Intro Session Request — Math with Bilge");
     const body = encodeURIComponent(
-      `Parent Name: ${form.name}\nEmail: ${form.email}\nChild's Grade: ${form.grade}\nWhat they're struggling with: ${form.struggles}\nPreferred Day/Time: ${form.time}`
+      `Parent Name: ${form.name}\nEmail: ${form.email}\nChild's Name: ${form.childName}\nChild's Grade: ${form.grade}\nChild's Interests/Hobbies: ${form.interests}\nWhat they're struggling with: ${form.struggles}\nPreferred Day/Time: ${form.time}`
     );
     window.location.href = `mailto:mypulum@gmail.com?subject=${subject}&body=${body}`;
 
     toast.success("Opening your email client — send the message to book your free session!");
-    setForm({ name: "", email: "", grade: "", struggles: "", time: "" });
+    setForm({ name: "", email: "", grade: "", childName: "", interests: "", struggles: "", time: "" });
   };
 
   return (
@@ -58,6 +58,17 @@ const BookFreeSession = () => {
             </div>
 
             <div>
+              <label className="text-sm font-medium text-foreground">Child's Name</label>
+              <Input
+                required
+                value={form.childName}
+                onChange={(e) => setForm({ ...form, childName: e.target.value })}
+                placeholder="Your child's first name"
+                className="mt-1"
+              />
+            </div>
+
+            <div>
               <label className="text-sm font-medium text-foreground">Child's Grade</label>
               <Select value={form.grade} onValueChange={(v) => setForm({ ...form, grade: v })}>
                 <SelectTrigger className="mt-1">
@@ -69,6 +80,19 @@ const BookFreeSession = () => {
                   ))}
                 </SelectContent>
               </Select>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-foreground">Child's Interests & Hobbies</label>
+              <Input
+                value={form.interests}
+                onChange={(e) => setForm({ ...form, interests: e.target.value })}
+                placeholder="e.g., soccer, video games, drawing..."
+                className="mt-1"
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                This helps me connect with your child and make sessions more engaging!
+              </p>
             </div>
 
             <div>
