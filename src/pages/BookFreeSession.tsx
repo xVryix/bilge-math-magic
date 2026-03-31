@@ -7,14 +7,14 @@ import { toast } from "sonner";
 import FadeIn from "@/components/FadeIn";
 
 const BookFreeSession = () => {
-  const [form, setForm] = useState({ name: "", email: "", grade: "", struggles: "", time: "" });
+  const [form, setForm] = useState({ name: "", email: "", grade: "", childName: "", interests: "", struggles: "", time: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const subject = encodeURIComponent("Free Intro Session Request — Math with Bilge");
     const body = encodeURIComponent(
-      `Parent Name: ${form.name}\nEmail: ${form.email}\nChild's Grade: ${form.grade}\nWhat they're struggling with: ${form.struggles}\nPreferred Day/Time: ${form.time}`
+      `Parent Name: ${form.name}\nEmail: ${form.email}\nChild's Name: ${form.childName}\nChild's Grade: ${form.grade}\nChild's Interests/Hobbies: ${form.interests}\nWhat they're struggling with: ${form.struggles}\nPreferred Day/Time: ${form.time}`
     );
     window.location.href = `mailto:mypulum@gmail.com?subject=${subject}&body=${body}`;
 
