@@ -102,6 +102,17 @@ const BookSession = () => {
             </div>
 
             <div>
+              <label className="text-sm font-medium text-foreground">Child's Name</label>
+              <Input
+                required
+                value={form.childName}
+                onChange={(e) => setForm({ ...form, childName: e.target.value })}
+                placeholder="Your child's first name"
+                className="mt-1"
+              />
+            </div>
+
+            <div>
               <label className="text-sm font-medium text-foreground">Child's Grade</label>
               <Select value={form.grade} onValueChange={(v) => setForm({ ...form, grade: v })}>
                 <SelectTrigger className="mt-1">
@@ -113,6 +124,19 @@ const BookSession = () => {
                   ))}
                 </SelectContent>
               </Select>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-foreground">Child's Interests & Hobbies</label>
+              <Input
+                value={form.interests}
+                onChange={(e) => setForm({ ...form, interests: e.target.value })}
+                placeholder="e.g., soccer, video games, drawing..."
+                className="mt-1"
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                This helps me connect with your child and make sessions more engaging!
+              </p>
             </div>
 
             <div>
