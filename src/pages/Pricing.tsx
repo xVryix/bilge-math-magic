@@ -110,7 +110,7 @@ const Pricing = () => (
       <FadeIn delay={0.65}>
         <div className="mt-12 text-center p-6 rounded-lg bg-primary-light">
           <p className="text-foreground font-medium">
-            🎉 Your first intro session is always free — no commitment, no pressure.
+            🎉 Your first 30-minute intro session is always free — no commitment, no pressure.
           </p>
           <Button asChild size="sm" className="mt-3">
             <Link to="/book-free-session">Book Your Free Intro</Link>
