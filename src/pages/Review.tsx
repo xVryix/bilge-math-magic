@@ -17,7 +17,7 @@ const ReviewPage = () => {
       return;
     }
 
-    const subject = encodeURIComponent("New Review — Math with Bilge");
+    const subject = encodeURIComponent("New Review — Math with Clarity");
     const body = encodeURIComponent(
       `Name: ${form.name}\nRating: ${form.rating}/5 stars\n\nReview:\n${form.review}`
     );
@@ -83,7 +83,7 @@ const ReviewPage = () => {
                 required
                 value={form.review}
                 onChange={(e) => setForm({ ...form, review: e.target.value })}
-                placeholder="How has tutoring with Bilge helped your child? What changes have you noticed?"
+                placeholder="How has tutoring with Clarity helped your child? What changes have you noticed?"
                 className="mt-1"
                 rows={5}
               />

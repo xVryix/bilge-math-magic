@@ -12,7 +12,7 @@ const BookFreeSession = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const subject = encodeURIComponent("Free Intro Session Request — Math with Bilge");
+    const subject = encodeURIComponent("Free Intro Session Request — Math with Clarity");
     const body = encodeURIComponent(
       `Parent Name: ${form.name}\nEmail: ${form.email}\nChild's Name: ${form.childName}\nChild's Grade: ${form.grade}\nChild's Interests/Hobbies: ${form.interests}\nWhat they're struggling with: ${form.struggles}\nPreferred Day/Time: ${form.time}`
     );
