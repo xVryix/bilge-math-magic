@@ -16,7 +16,7 @@ const BookFreeSession = () => {
     const body = encodeURIComponent(
       `Parent Name: ${form.name}\nEmail: ${form.email}\nChild's Name: ${form.childName}\nChild's Grade: ${form.grade}\nChild's Interests/Hobbies: ${form.interests}\nWhat they're struggling with: ${form.struggles}\nPreferred Day/Time: ${form.time}`
     );
-    window.location.href = `mailto:mypulum@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:mathwithclaritytutors@gmail.com?subject=${subject}&body=${body}`;
 
     toast.success("Opening your email client — send the message to book your free session!");
     setForm({ name: "", email: "", grade: "", childName: "", interests: "", struggles: "", time: "" });
