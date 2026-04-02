@@ -4,7 +4,7 @@ import { Star, CalendarCheck, Monitor, TrendingUp, Heart, ShieldCheck, FileText,
 import FadeIn from "@/components/FadeIn";
 
 const steps = [
-  { icon: CalendarCheck, title: "Book a free intro", desc: "Schedule a no-pressure intro session so we can meet and talk about your child's needs." },
+  { icon: CalendarCheck, title: "Book a free intro", desc: "Schedule a no-pressure 30-minute intro session so we can meet and talk about your child's needs." },
   { icon: Monitor, title: "We meet on Google Meet", desc: "Sessions happen live on Google Meet with an interactive whiteboard — visual, engaging, and fun." },
   { icon: TrendingUp, title: "Your child builds confidence", desc: "With patient guidance and regular practice, your child starts to truly understand math." },
 ];
@@ -20,7 +20,7 @@ const trustSignals = [
   { icon: FileText, text: "Session recap sent to parents after every lesson" },
   { icon: ShieldCheck, text: "Parents welcome to sit in on any session" },
   { icon: Clock, text: "No long-term commitment — book as you go" },
-  { icon: Heart, text: "Free intro session, no pressure" },
+  { icon: Heart, text: "Free 30-minute intro session, no pressure" },
 ];
 
 const milestones = [
@@ -56,7 +56,7 @@ const Home = () => (
         </FadeIn>
         <FadeIn delay={0.3}>
           <Button asChild size="lg" className="mt-8 text-base px-8">
-            <Link to="/book-free-session">Book a free intro session</Link>
+            <Link to="/book-free-session">Book a free 30-minute intro session</Link>
           </Button>
         </FadeIn>
       </div>
@@ -220,7 +220,7 @@ const Home = () => (
             The first session is always free. No commitment, no pressure — just math.
           </p>
           <Button asChild size="lg" className="mt-6 text-base px-8">
-            <Link to="/book-free-session">Book your free intro session</Link>
+            <Link to="/book-free-session">Book your free 30-minute intro session</Link>
           </Button>
         </FadeIn>
       </div>

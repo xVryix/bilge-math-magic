@@ -26,9 +26,9 @@ const BookFreeSession = () => {
     <div className="py-20">
       <div className="container mx-auto px-4 max-w-2xl">
         <FadeIn>
-          <h1 className="text-4xl md:text-5xl text-foreground">Book Your Free Intro Session</h1>
+          <h1 className="text-4xl md:text-5xl text-foreground">Book Your Free 30-Minute Intro Session</h1>
           <p className="mt-4 text-muted-foreground text-lg">
-            Let's meet and see if we're a great fit. The first session is always free — no commitment, no pressure. Just fill out the form below and I'll get back to you within 24 hours.
+            Let's meet and see if we're a great fit. The first 30-minute session is always free — no commitment, no pressure. Just fill out the form below and I'll get back to you within 24 hours.
           </p>
         </FadeIn>
 
