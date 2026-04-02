@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="font-serif text-2xl text-primary tracking-tight">
-          Math with Bilge
+          Math with Clarity
         </Link>
 
         {/* Desktop */}

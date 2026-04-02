@@ -13,7 +13,7 @@ const Footer = () => (
       <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 max-w-4xl mx-auto">
         <div className="text-center md:text-left">
           <Link to="/" className="font-serif text-xl text-primary">
-            Math with Bilge
+            Math with Clarity
           </Link>
           <p className="mt-2 text-sm text-muted-foreground">
             Making math make sense, one student at a time.
@@ -43,7 +43,7 @@ const Footer = () => (
       </div>
 
       <p className="mt-8 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Math with Bilge. All rights reserved.
+        © {new Date().getFullYear()} Math with Clarity. All rights reserved.
       </p>
     </div>
   </footer>
