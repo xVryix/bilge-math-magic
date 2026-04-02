@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -20,7 +21,8 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="font-serif text-2xl text-primary tracking-tight">
+        <Link to="/" className="flex items-center gap-2 font-serif text-2xl text-primary tracking-tight">
+          <img src={logo} alt="Math with Clarity logo" width={32} height={32} className="w-8 h-8" />
           Math with Clarity
         </Link>
 
