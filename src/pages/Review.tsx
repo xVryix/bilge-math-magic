@@ -21,7 +21,7 @@ const ReviewPage = () => {
     const body = encodeURIComponent(
       `Name: ${form.name}\nRating: ${form.rating}/5 stars\n\nReview:\n${form.review}`
     );
-    window.location.href = `mailto:mypulum@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:mathwithclaritytutors@gmail.com?subject=${subject}&body=${body}`;
 
     toast.success("Opening your email client — send the message to submit your review!");
     setForm({ name: "", rating: 0, review: "" });

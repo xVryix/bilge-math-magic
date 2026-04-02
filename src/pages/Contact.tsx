@@ -17,7 +17,7 @@ const Contact = () => {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
     );
-    window.location.href = `mailto:mypulum@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:mathwithclaritytutors@gmail.com?subject=${subject}&body=${body}`;
 
     toast.success("Opening your email client — send the message to reach me!");
     setForm({ name: "", email: "", message: "" });
@@ -85,8 +85,8 @@ const Contact = () => {
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <Mail className="w-4 h-4" />
               <span>Or email me directly at{" "}
-                <a href="mailto:mypulum@gmail.com" className="text-primary hover:underline font-medium">
-                  mypulum@gmail.com
+                <a href="mailto:mathwithclaritytutors@gmail.com" className="text-primary hover:underline font-medium">
+                  mathwithclaritytutors@gmail.com
                 </a>
               </span>
             </div>
