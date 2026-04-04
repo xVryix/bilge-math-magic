@@ -4,27 +4,41 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import FadeIn from "@/components/FadeIn";
 
 const ReviewPage = () => {
   const [form, setForm] = useState({ name: "", rating: 0, review: "" });
   const [hovered, setHovered] = useState(0);
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (form.rating === 0) {
       toast.error("Please select a star rating before submitting.");
       return;
     }
+    setSending(true);
 
-    const subject = encodeURIComponent("New Review — Math with Clarity");
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nRating: ${form.rating}/5 stars\n\nReview:\n${form.review}`
-    );
-    window.location.href = `mailto:mathwithclaritytutors@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      const id = crypto.randomUUID();
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "review-submission",
+          recipientEmail: "mathwithclaritytutors@gmail.com",
+          idempotencyKey: `review-${id}`,
+          templateData: { name: form.name, rating: form.rating, review: form.review },
+        },
+      });
 
-    toast.success("Opening your email client — send the message to submit your review!");
-    setForm({ name: "", rating: 0, review: "" });
+      if (error) throw error;
+      toast.success("Review submitted — thank you so much!");
+      setForm({ name: "", rating: 0, review: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -41,56 +55,28 @@ const ReviewPage = () => {
           <form onSubmit={handleSubmit} className="mt-10 space-y-6">
             <div>
               <label className="text-sm font-medium text-foreground">Your Name</label>
-              <Input
-                required
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="First name & last initial (e.g., Sarah M.)"
-                className="mt-1"
-              />
+              <Input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="First name & last initial (e.g., Sarah M.)" className="mt-1" />
             </div>
 
             <div>
               <label className="text-sm font-medium text-foreground block mb-2">Rating</label>
               <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <button
-                    key={star}
-                    type="button"
-                    onMouseEnter={() => setHovered(star)}
-                    onMouseLeave={() => setHovered(0)}
-                    onClick={() => setForm({ ...form, rating: star })}
-                    className="p-1 transition-transform hover:scale-110"
-                  >
-                    <Star
-                      className={`w-8 h-8 transition-colors ${
-                        star <= (hovered || form.rating)
-                          ? "fill-primary text-primary"
-                          : "text-border"
-                      }`}
-                    />
+                  <button key={star} type="button" onMouseEnter={() => setHovered(star)} onMouseLeave={() => setHovered(0)} onClick={() => setForm({ ...form, rating: star })} className="p-1 transition-transform hover:scale-110">
+                    <Star className={`w-8 h-8 transition-colors ${star <= (hovered || form.rating) ? "fill-primary text-primary" : "text-border"}`} />
                   </button>
                 ))}
               </div>
-              {form.rating > 0 && (
-                <p className="text-sm text-muted-foreground mt-1">{form.rating} out of 5 stars</p>
-              )}
+              {form.rating > 0 && <p className="text-sm text-muted-foreground mt-1">{form.rating} out of 5 stars</p>}
             </div>
 
             <div>
               <label className="text-sm font-medium text-foreground">Your Review</label>
-              <Textarea
-                required
-                value={form.review}
-                onChange={(e) => setForm({ ...form, review: e.target.value })}
-                placeholder="How has tutoring with Clarity helped your child? What changes have you noticed?"
-                className="mt-1"
-                rows={5}
-              />
+              <Textarea required value={form.review} onChange={(e) => setForm({ ...form, review: e.target.value })} placeholder="How has tutoring with Clarity helped your child? What changes have you noticed?" className="mt-1" rows={5} />
             </div>
 
-            <Button type="submit" className="w-full" size="lg">
-              Submit Review
+            <Button type="submit" className="w-full" size="lg" disabled={sending}>
+              {sending ? "Submitting..." : "Submit Review"}
             </Button>
           </form>
         </FadeIn>
