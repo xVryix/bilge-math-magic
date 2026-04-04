@@ -22,8 +22,8 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-2 font-serif text-2xl text-primary tracking-tight">
-          <img src={logo} alt="Math with Clarity logo" width={32} height={32} className="w-8 h-8" />
-          Math with Clarity
+          <img src={logo} alt="Math With Clarity logo" width={32} height={32} className="w-8 h-8" />
+          Math With Clarity
         </Link>
 
         {/* Desktop */}
