@@ -5,22 +5,36 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import FadeIn from "@/components/FadeIn";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSending(true);
 
-    const subject = encodeURIComponent("Question from Math with Clarity website");
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:mathwithclaritytutors@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      const id = crypto.randomUUID();
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-inquiry",
+          recipientEmail: "mathwithclaritytutors@gmail.com",
+          idempotencyKey: `contact-${id}`,
+          templateData: { name: form.name, email: form.email, message: form.message },
+        },
+      });
 
-    toast.success("Opening your email client — send the message to reach me!");
-    setForm({ name: "", email: "", message: "" });
+      if (error) throw error;
+      toast.success("Message sent! I'll get back to you within 24 hours.");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again or email me directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -41,41 +55,18 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className="mt-10 space-y-5">
             <div>
               <label className="text-sm font-medium text-foreground">Your Name</label>
-              <Input
-                required
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="Full name"
-                className="mt-1"
-              />
+              <Input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Full name" className="mt-1" />
             </div>
-
             <div>
               <label className="text-sm font-medium text-foreground">Email</label>
-              <Input
-                required
-                type="email"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="you@example.com"
-                className="mt-1"
-              />
+              <Input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@example.com" className="mt-1" />
             </div>
-
             <div>
               <label className="text-sm font-medium text-foreground">Message</label>
-              <Textarea
-                required
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                placeholder="What would you like to know?"
-                className="mt-1"
-                rows={5}
-              />
+              <Textarea required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="What would you like to know?" className="mt-1" rows={5} />
             </div>
-
-            <Button type="submit" className="w-full" size="lg">
-              Send Message
+            <Button type="submit" className="w-full" size="lg" disabled={sending}>
+              {sending ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </FadeIn>
