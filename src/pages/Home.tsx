@@ -50,26 +50,14 @@ const Home = () => (
       </div>
     </section>
 
-    {/* Social Proof Stats */}
-    <section className="py-10 border-b bg-card">
+    {/* Trust Line */}
+    <section className="py-8 border-b bg-card">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          {stats.map((stat, i) => (
-            <FadeIn key={i} delay={0.05 * (i + 1)}>
-              <div className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-primary">{stat.number}</p>
-                {stat.showStars && (
-                  <div className="flex justify-center gap-0.5 mt-1">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                )}
-                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+        <FadeIn>
+          <p className="text-center text-lg text-muted-foreground">
+            Patient, relatable, and built around your child's needs.
+          </p>
+        </FadeIn>
       </div>
     </section>
 
