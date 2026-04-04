@@ -23,12 +23,6 @@ const milestones = [
   { session: "After Session 4", result: "Parents typically report improved confidence, better homework habits, and less math anxiety." },
 ];
 
-const stats = [
-  { number: "50+", label: "Sessions Delivered", showStars: false },
-  { number: "20+", label: "Students Helped", showStars: false },
-  { number: "5.0", label: "Average Rating", showStars: true },
-  { number: "100%", label: "Satisfaction Rate", showStars: false },
-];
 
 const Home = () => (
   <div>
