@@ -9,12 +9,6 @@ const steps = [
   { icon: TrendingUp, title: "Your child builds confidence", desc: "With patient guidance and regular practice, your child starts to truly understand math." },
 ];
 
-const testimonials = [
-  { name: "Sarah M.", text: "Bilge is incredibly patient and explains things in a way my daughter actually understands. Her grades have gone up a full letter since we started!", stars: 5 },
-  { name: "David L.", text: "We were skeptical at first, but Bilge's enthusiasm is contagious. My son now actually looks forward to math practice.", stars: 5 },
-  { name: "Jessica T.", text: "The recap notes after each session are so helpful. I always know exactly what they worked on and what to practice next.", stars: 5 },
-  { name: "Michael R.", text: "Bilge connects with kids on their level — something most tutors can't do. My daughter went from crying over homework to solving problems on her own.", stars: 5 },
-];
 
 const trustSignals = [
   { icon: FileText, text: "Session recap sent to parents after every lesson" },
