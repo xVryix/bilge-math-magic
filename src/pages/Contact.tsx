@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import FadeIn from "@/components/FadeIn";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", grade: "", message: "" });
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
