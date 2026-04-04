@@ -80,7 +80,7 @@ const ReviewPage = () => {
 
             <div>
               <label className="text-sm font-medium text-foreground">Your Review</label>
-              <Textarea required value={form.review} onChange={(e) => setForm({ ...form, review: e.target.value })} placeholder="How has tutoring with Clarity helped your child? What changes have you noticed?" className="mt-1" rows={5} />
+              <Textarea required value={form.review} onChange={(e) => setForm({ ...form, review: e.target.value })} <Textarea required value={form.review} onChange={(e) => setForm({ ...form, review: e.target.value })} placeholder="How has tutoring with Math With Clarity helped your child? What changes have you noticed?" className="mt-1" rows={5} /> className="mt-1" rows={5} />
             </div>
 
             <Button type="submit" className="w-full" size="lg" disabled={sending}>
