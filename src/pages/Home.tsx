@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Star, CalendarCheck, Monitor, TrendingUp, Heart, ShieldCheck, FileText, Clock, CheckCircle, Users } from "lucide-react";
+import { CalendarCheck, Monitor, TrendingUp, Heart, ShieldCheck, FileText, Clock, CheckCircle } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
 const steps = [
@@ -9,12 +9,6 @@ const steps = [
   { icon: TrendingUp, title: "Your child builds confidence", desc: "With patient guidance and regular practice, your child starts to truly understand math." },
 ];
 
-const testimonials = [
-  { name: "Sarah M.", text: "Bilge is incredibly patient and explains things in a way my daughter actually understands. Her grades have gone up a full letter since we started!", stars: 5 },
-  { name: "David L.", text: "We were skeptical at first, but Bilge's enthusiasm is contagious. My son now actually looks forward to math practice.", stars: 5 },
-  { name: "Jessica T.", text: "The recap notes after each session are so helpful. I always know exactly what they worked on and what to practice next.", stars: 5 },
-  { name: "Michael R.", text: "Bilge connects with kids on their level — something most tutors can't do. My daughter went from crying over homework to solving problems on her own.", stars: 5 },
-];
 
 const trustSignals = [
   { icon: FileText, text: "Session recap sent to parents after every lesson" },
@@ -29,12 +23,6 @@ const milestones = [
   { session: "After Session 4", result: "Parents typically report improved confidence, better homework habits, and less math anxiety." },
 ];
 
-const stats = [
-  { number: "50+", label: "Sessions Delivered", showStars: false },
-  { number: "20+", label: "Students Helped", showStars: false },
-  { number: "5.0", label: "Average Rating", showStars: true },
-  { number: "100%", label: "Satisfaction Rate", showStars: false },
-];
 
 const Home = () => (
   <div>
@@ -62,26 +50,14 @@ const Home = () => (
       </div>
     </section>
 
-    {/* Social Proof Stats */}
-    <section className="py-10 border-b bg-card">
+    {/* Trust Line */}
+    <section className="py-8 border-b bg-card">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          {stats.map((stat, i) => (
-            <FadeIn key={i} delay={0.05 * (i + 1)}>
-              <div className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-primary">{stat.number}</p>
-                {stat.showStars && (
-                  <div className="flex justify-center gap-0.5 mt-1">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                )}
-                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+        <FadeIn>
+          <p className="text-center text-lg text-muted-foreground">
+            Patient, relatable, and built around your child's needs.
+          </p>
+        </FadeIn>
       </div>
     </section>
 
@@ -179,34 +155,17 @@ const Home = () => (
       </div>
     </section>
 
-    {/* Testimonials */}
+    {/* Reviews Coming Soon */}
     <section className="py-20 bg-secondary/50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 text-center max-w-2xl">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl text-center text-foreground">What parents are saying</h2>
-        </FadeIn>
-        <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {testimonials.map((t, i) => (
-            <FadeIn key={i} delay={0.1 * (i + 1)}>
-              <div className="bg-card p-6 rounded-lg border shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-foreground/80 leading-relaxed">"{t.text}"</p>
-                <p className="mt-3 text-sm font-semibold text-foreground">— {t.name}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-        <FadeIn delay={0.5}>
-          <div className="mt-10 text-center">
-            <p className="text-muted-foreground">Had a great experience?</p>
-            <Button asChild variant="outline" className="mt-3">
-              <Link to="/review">Leave a Review ⭐</Link>
-            </Button>
-          </div>
+          <h2 className="text-3xl md:text-4xl text-foreground">What parents are saying</h2>
+          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            Reviews are coming soon! Be the first to leave one after your free intro session.
+          </p>
+          <Button asChild variant="outline" className="mt-6">
+            <Link to="/review">Leave a Review ⭐</Link>
+          </Button>
         </FadeIn>
       </div>
     </section>

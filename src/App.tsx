@@ -16,6 +16,7 @@ import BookFreeSession from "./pages/BookFreeSession";
 import Review from "./pages/Review";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/book-free-session" element={<BookFreeSession />} />
             <Route path="/review" element={<Review />} />
             <Route path="/unsubscribe" element={<Unsubscribe />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

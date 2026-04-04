@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import FadeIn from "@/components/FadeIn";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", grade: "", message: "" });
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -23,13 +24,13 @@ const Contact = () => {
           templateName: "contact-inquiry",
           recipientEmail: "mathwithclaritytutors@gmail.com",
           idempotencyKey: `contact-${id}`,
-          templateData: { name: form.name, email: form.email, message: form.message },
+          templateData: { name: form.name, email: form.email, grade: form.grade, message: form.message },
         },
       });
 
       if (error) throw error;
       toast.success("Message sent! I'll get back to you within 24 hours.");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", grade: "", message: "" });
     } catch {
       toast.error("Something went wrong. Please try again or email me directly.");
     } finally {
@@ -60,6 +61,21 @@ const Contact = () => {
             <div>
               <label className="text-sm font-medium text-foreground">Email</label>
               <Input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@example.com" className="mt-1" />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-foreground">Child's Grade</label>
+              <Select value={form.grade} onValueChange={(val) => setForm({ ...form, grade: val })}>
+                <SelectTrigger className="mt-1">
+                  <SelectValue placeholder="Select grade" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="3rd">3rd Grade</SelectItem>
+                  <SelectItem value="4th">4th Grade</SelectItem>
+                  <SelectItem value="5th">5th Grade</SelectItem>
+                  <SelectItem value="6th">6th Grade</SelectItem>
+                  <SelectItem value="7th">7th Grade</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div>
               <label className="text-sm font-medium text-foreground">Message</label>
