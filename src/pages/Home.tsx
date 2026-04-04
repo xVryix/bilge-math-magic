@@ -155,34 +155,17 @@ const Home = () => (
       </div>
     </section>
 
-    {/* Testimonials */}
+    {/* Reviews Coming Soon */}
     <section className="py-20 bg-secondary/50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 text-center max-w-2xl">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl text-center text-foreground">What parents are saying</h2>
-        </FadeIn>
-        <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {testimonials.map((t, i) => (
-            <FadeIn key={i} delay={0.1 * (i + 1)}>
-              <div className="bg-card p-6 rounded-lg border shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-foreground/80 leading-relaxed">"{t.text}"</p>
-                <p className="mt-3 text-sm font-semibold text-foreground">— {t.name}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-        <FadeIn delay={0.5}>
-          <div className="mt-10 text-center">
-            <p className="text-muted-foreground">Had a great experience?</p>
-            <Button asChild variant="outline" className="mt-3">
-              <Link to="/review">Leave a Review ⭐</Link>
-            </Button>
-          </div>
+          <h2 className="text-3xl md:text-4xl text-foreground">What parents are saying</h2>
+          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            Reviews are coming soon! Be the first to leave one after your free intro session.
+          </p>
+          <Button asChild variant="outline" className="mt-6">
+            <Link to="/review">Leave a Review ⭐</Link>
+          </Button>
         </FadeIn>
       </div>
     </section>

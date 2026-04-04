@@ -5,6 +5,7 @@ const footerLinks = [
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
   { to: "/book-free-session", label: "Book Free Session" },
+  { to: "/privacy", label: "Privacy Policy" },
 ];
 
 const Footer = () => (

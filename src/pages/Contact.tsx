@@ -63,6 +63,21 @@ const Contact = () => {
               <Input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@example.com" className="mt-1" />
             </div>
             <div>
+              <label className="text-sm font-medium text-foreground">Child's Grade</label>
+              <Select value={form.grade} onValueChange={(val) => setForm({ ...form, grade: val })}>
+                <SelectTrigger className="mt-1">
+                  <SelectValue placeholder="Select grade" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="3rd">3rd Grade</SelectItem>
+                  <SelectItem value="4th">4th Grade</SelectItem>
+                  <SelectItem value="5th">5th Grade</SelectItem>
+                  <SelectItem value="6th">6th Grade</SelectItem>
+                  <SelectItem value="7th">7th Grade</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
               <label className="text-sm font-medium text-foreground">Message</label>
               <Textarea required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="What would you like to know?" className="mt-1" rows={5} />
             </div>
