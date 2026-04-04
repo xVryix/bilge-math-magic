@@ -24,7 +24,7 @@ const Contact = () => {
           templateName: "contact-inquiry",
           recipientEmail: "mathwithclaritytutors@gmail.com",
           idempotencyKey: `contact-${id}`,
-          templateData: { name: form.name, email: form.email, message: form.message },
+          templateData: { name: form.name, email: form.email, grade: form.grade, message: form.message },
         },
       });
 
