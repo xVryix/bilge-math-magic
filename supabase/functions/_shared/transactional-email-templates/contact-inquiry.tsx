@@ -9,10 +9,11 @@ const SITE_NAME = "Math With Clarity"
 interface Props {
   name?: string
   email?: string
+  grade?: string
   message?: string
 }
 
-const ContactInquiryEmail = ({ name, email, message }: Props) => (
+const ContactInquiryEmail = ({ name, email, grade, message }: Props) => (
   <Html lang="en" dir="ltr">
     <Head />
     <Preview>New contact form message from {name || 'a visitor'}</Preview>
@@ -21,6 +22,7 @@ const ContactInquiryEmail = ({ name, email, message }: Props) => (
         <Heading style={h1}>New Contact Form Submission</Heading>
         <Text style={text}><strong>Name:</strong> {name || 'Not provided'}</Text>
         <Text style={text}><strong>Email:</strong> {email || 'Not provided'}</Text>
+        <Text style={text}><strong>Child's Grade:</strong> {grade || 'Not provided'}</Text>
         <Hr style={hr} />
         <Text style={label}>Message:</Text>
         <Text style={text}>{message || 'No message provided'}</Text>
@@ -36,7 +38,7 @@ export const template = {
   subject: (data: Record<string, any>) => `New inquiry from ${data.name || 'a visitor'} — ${SITE_NAME}`,
   to: 'mathwithclaritytutors@gmail.com',
   displayName: 'Contact form inquiry',
-  previewData: { name: 'Sarah M.', email: 'sarah@example.com', message: 'I have a question about tutoring for my 5th grader.' },
+  previewData: { name: 'Sarah M.', email: 'sarah@example.com', grade: '5th', message: 'I have a question about tutoring for my 5th grader.' },
 } satisfies TemplateEntry
 
 const main = { backgroundColor: '#ffffff', fontFamily: "'DM Sans', Arial, sans-serif" }
