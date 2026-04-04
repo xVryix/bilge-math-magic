@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Star, CalendarCheck, Monitor, TrendingUp, Heart, ShieldCheck, FileText, Clock, CheckCircle, Users } from "lucide-react";
+import { CalendarCheck, Monitor, TrendingUp, Heart, ShieldCheck, FileText, Clock, CheckCircle } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
 const steps = [
