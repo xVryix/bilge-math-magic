@@ -21,8 +21,17 @@ const ReviewPage = () => {
     setSending(true);
 
     try {
+      // Save review to database
+      const { error: dbError } = await supabase.from("reviews").insert({
+        name: form.name,
+        rating: form.rating,
+        review: form.review,
+      });
+      if (dbError) throw dbError;
+
+      // Also send email notification
       const id = crypto.randomUUID();
-      const { error } = await supabase.functions.invoke("send-transactional-email", {
+      await supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "review-submission",
           recipientEmail: "mathwithclaritytutors@gmail.com",
@@ -31,7 +40,6 @@ const ReviewPage = () => {
         },
       });
 
-      if (error) throw error;
       toast.success("Review submitted — thank you so much!");
       setForm({ name: "", rating: 0, review: "" });
     } catch {
