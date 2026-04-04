@@ -30,7 +30,7 @@ const Contact = () => {
 
       if (error) throw error;
       toast.success("Message sent! I'll get back to you within 24 hours.");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", grade: "", message: "" });
     } catch {
       toast.error("Something went wrong. Please try again or email me directly.");
     } finally {
