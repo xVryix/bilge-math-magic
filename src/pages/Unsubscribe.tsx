@@ -69,7 +69,7 @@ const Unsubscribe = () => {
             <>
               <h1 className="text-3xl text-foreground mb-4">Unsubscribe</h1>
               <p className="text-muted-foreground mb-6">
-                Are you sure you want to unsubscribe from Math with Clarity emails?
+                Are you sure you want to unsubscribe from Math With Clarity emails?
               </p>
               <Button onClick={handleUnsubscribe} variant="destructive" size="lg">
                 Confirm Unsubscribe
