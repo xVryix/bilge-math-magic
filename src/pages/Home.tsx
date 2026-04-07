@@ -70,7 +70,7 @@ const Home = () => {
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <FadeIn>
             <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
-              Trusted by parents of 3rd–7th graders
+              Online math tutoring for 3rd–7th graders
             </p>
             <h1 className="text-4xl md:text-6xl text-foreground leading-tight">
               Math finally makes sense.
