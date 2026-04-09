@@ -32,6 +32,7 @@ const BookSession = () => {
           templateName: "booking-request",
           recipientEmail: "mathwithclaritytutors@gmail.com",
           idempotencyKey: `booking-${id}`,
+          replyTo: form.email,
           templateData: { parentName: form.name, email: form.email, childName: form.childName, grade: form.grade, interests: form.interests, struggles: form.struggles, time: form.time, planName: details.name, planPrice: details.price },
         },
       });
