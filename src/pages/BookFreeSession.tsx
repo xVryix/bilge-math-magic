@@ -22,6 +22,7 @@ const BookFreeSession = () => {
           templateName: "free-session-request",
           recipientEmail: "mathwithclaritytutors@gmail.com",
           idempotencyKey: `free-session-${id}`,
+          replyTo: form.email,
           templateData: { parentName: form.name, email: form.email, childName: form.childName, grade: form.grade, interests: form.interests, struggles: form.struggles, time: form.time },
         },
       });
